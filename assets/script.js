@@ -31,7 +31,7 @@ var questions = [
     },
 ]
 
-// this is all the variables we will need
+// this is all the variables we will use
 var maincard = document.getElementById("main-card");
 var quizcard = document.getElementById("quiz-card");
 var scorecard = document.getElementById("score-card");
@@ -45,6 +45,8 @@ var input = document.getElementById("initials");
 var clearbutton = document.getElementById("clearbutton");
 var backbutton = document.getElementById("backbutton");
 var highscorelink = document.getElementById("highscore-link");
+var start = document.getElementById("start-button");
+var quizanwsers = document.getElementById("quiz-answers");
 var interval;
 var time;
 var questionIndex;
@@ -62,7 +64,7 @@ function hideresultstext() {
     results.style.display= "none";
 }
 
-document.getElementById("start-button").addEventListener("click", startquiz);
+
 
 function startquiz() {
     hidecards();
@@ -103,7 +105,7 @@ function displayQuestion() {
     }
 }
 
-document.getElementById("quiz-answers").addEventListener("click", checkcorrectAnswer);
+
 
 
 
@@ -157,7 +159,7 @@ function endQuiz() {
 
 
 
-submit.addEventListener("click", storescore);
+
 
 function storescore(event) {
     event.preventDefault();
@@ -207,7 +209,7 @@ function renderHighscore() {
 }
 
 
-clearbutton.addEventListener("click", clearHighscore);
+
 
 function clearHighscore () {
     localStorage.clear();
@@ -215,7 +217,7 @@ function clearHighscore () {
 }
 
 
-backbutton.addEventListener("click", returnToStart);
+
 
 function returnToStart() {
     hidecards();
@@ -223,7 +225,7 @@ function returnToStart() {
 }
 
 
-highscorelink.addEventListener("click", showhighscore)
+
 
 function showhighscore() {
     hidecards();
@@ -235,3 +237,12 @@ function showhighscore() {
     displayTime();
     renderHighscore();
 }
+
+
+// all of my event listeners 
+start.addEventListener("click", startquiz);
+quizanwsers.addEventListener("click", checkcorrectAnswer);
+submit.addEventListener("click", storescore);
+clearbutton.addEventListener("click", clearHighscore);
+backbutton.addEventListener("click", returnToStart);
+highscorelink.addEventListener("click", showhighscore)
