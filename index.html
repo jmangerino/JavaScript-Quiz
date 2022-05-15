@@ -19,16 +19,19 @@
                <h1 id="title"> Coding Quiz Challenge</h1>
                <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will 
                    penalize your score/time by ten seconds!</p>
-                <button id="start-quiz" class="button">Start Quiz</button>
+                <button id="start-button" class="button">Start Quiz</button>
             </div>
 <!-- the quiz card and the buttons for the answers-->
-            <div hidden id="quiz-card" class="card"></div>
+            <div hidden id="quiz-card" class="card">
+                
+                <h2 id="question-text"></h2>
 
-            <div id="quiz-answers">
-                <button id="answer0" class="answer-0"></button>
-                <button id="answer1" class="answer-1"></button>
-                <button id="answer2" class="answer-2"></button>
-                <button id="answer3" class="answer-3"></button>
+                <div id="quiz-answers">
+                    <button id="answer0" class="button answer-button"></button>
+                    <button id="answer1" class="button answer-button"></button>
+                    <button id="answer2" class="button answer-button"></button>
+                    <button id="answer3" class="button answer-button"></button>
+                </div>
             </div>
 <!-- the resutls card that tells you your score-->
             <div id="results"></div>
