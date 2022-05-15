@@ -13,7 +13,7 @@
            <a id="highscore-link">View High Scores</a>
            <time>Time: <span id="time"></span></time>
        </header>
-
+<!--the main card to start the quiz-->
        <main>
            <div id="main-card" class="card">
                <h1 id="title"> Coding Quiz Challenge</h1>
@@ -21,7 +21,8 @@
                    penalize your score/time by ten seconds!</p>
                 <button id="start-quiz" class="button">Start Quiz</button>
             </div>
-            <div id="quiz-card" class="card"></div>
+<!-- the quiz card and the buttons for the answers-->
+            <div hidden id="quiz-card" class="card"></div>
 
             <div id="quiz-answers">
                 <button id="answer0" class="answer-0"></button>
@@ -29,12 +30,14 @@
                 <button id="answer2" class="answer-2"></button>
                 <button id="answer3" class="answer-3"></button>
             </div>
+<!-- the resutls card that tells you your score-->
             <div id="results"></div>
             <div id="results-text"></div>
             <div hidden id="score-card" class="card">
                 <h2> All done!</h2>
                 <p> Your final Score is <span id="score"></span></p>
             </div>
+<!-- the higscore card to see all the scores-->
             <div hidden id="highscore-card" class="card">
                 <h2>Highscores</h2>
                  <ol id="highscore-list"></ol>
