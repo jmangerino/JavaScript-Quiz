@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+    
+<head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initia-scale=1.0" />
         <title>JavaScript Quiz</title>
         <link rel="stylesheet" href="./assets/style.css" />
     </head>
+    
     <body>
+       <header>
+           <a id="highscore-link">View High Scores</a>
+           <time>Time: <span id="time"></span></time>
+       </header>
+
+       <main>
+           <div id="main-card" class="card">
+               <h1 id="title"> Coding Quiz Challenge</h1>
+               <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will 
+                   penalize your score/time by ten seconds!</p>
+                <button id="start-quiz" class="button">Start Quiz</button>
+            </div>
+            <div id="quiz-card" class="card"></div>
+
+            <div id="quiz-answers">
+                <button id="answer0" class="answer-0"></button>
+                <button id="answer1" class="answer-1"></button>
+                <button id="answer2" class="answer-2"></button>
+                <button id="answer3" class="answer-3"></button>
+            </div>
+            <div id="results"></div>
+            <div id="results-text"></div>
+            <div hidden id="score-card" class="card">
+                <h2> All done!</h2>
+                <p> Your final Score is <span id="score"></span></p>
+            </div>
+            <div hidden id="highscore-card" class="card">
+                <h2>Highscores</h2>
+                 <ol id="highscore-list"></ol>
+                <button id="backbutton" class="button">Go Back</button>
+                <button id="clearbutton" class="button">Clear Highscores</button>
+            </div>
+       </main>
+        
+        
+        
+        
+        
+        
         <script src="./assets/script.js"></script>
     </body>
 </html>
