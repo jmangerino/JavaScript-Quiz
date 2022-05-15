@@ -137,9 +137,89 @@ var score = document.getElementById("score");
 function endQuiz() {
     clearInterval(interval);
     hidecards();
-    highscorecard.removeAttribute("hidden");
+    scorecard.removeAttribute("hidden");
     score.textContent = time;
     console.log(score)
 }
 
+var submit = document.getElementById("submit");
+var input = document.getElementById("initials");
 
+submit.addEventListener("click", storescore);
+
+function storescore(event) {
+    event.preventDefault();
+
+
+let highscoreItem = {
+    initials: input.value,
+    score: time,
+};
+
+updateStoredHighscore(highscoreItem);
+
+hidecards();
+highscorecard.removeAttribute("hidden");
+
+renderHighscore();
+}
+
+function updateStoredHighscore(highscoreItem) {
+    let highscoreArray = getHighscore();
+    highscoreArray.push(highscoreItem)
+    localStorage.setItem("highscoreArray", JSON.stringify(highscoreArray));
+}
+
+function getHighscore() {
+    let storedHighscore = localStorage.getItem("highscoreArray");
+    if (storedHighscore !== null) {
+        let highscoreArray = JSON.parse(storedHighscore);
+        return highscoreArray;
+    } else {
+        highscoreArray = [];
+    }
+    return highscoreArray
+}
+
+function renderHighscore() {
+    let sortedHighscoreArray = sorthighscore();
+    var highscorelist = document.getElementById("highscore-list");
+    highscorelist.innerHTML = "";
+    for (let i = 0; i < sortedHighscoreArray.length; i++) {
+        let highscoreEntry = sortedHighscoreArray[i];
+        let newlistItem = document.createElement("li");
+        newlistItem.textContent =
+        highscoreEntry.initials + " - " + highscoreEntry.score;
+        highscorelist.append(newlistItem);
+    }
+}
+
+var clearbutton = document.getElementById("clearbutton");
+clearbutton.addEventListener("click", clearHighscore);
+
+function clearHighscore () {
+    localStorage.clear();
+    renderHighscore();
+}
+
+var backbutton = document.getElementById("backbutton");
+backbutton.addEventListener("click", returnToStart);
+
+function returnToStart() {
+    hidecards();
+    maincard.removeAttribute("hidden");
+}
+
+var highscorelink = document.getElementById("highscore-link");
+highscorelink.addEventListener("click", showhighscore)
+
+function showhighscore() {
+    hidecards();
+    highscorecard.removeAttribute("hidden");
+
+    clearInterval(interval);
+
+    time = undefined;
+    displayTime();
+    renderHighscore();
+}
