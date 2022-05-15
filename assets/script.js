@@ -38,6 +38,13 @@ var scorecard = document.getElementById("score-card");
 var highscorecard = document.getElementById("highscore-card");
 var results = document.getElementById("results");
 var resultstext = document.getElementById("results-text");
+var timeDisplay = document.getElementById("time");
+var score = document.getElementById("score");
+var submit = document.getElementById("submit");
+var input = document.getElementById("initials");
+var clearbutton = document.getElementById("clearbutton");
+var backbutton = document.getElementById("backbutton");
+var highscorelink = document.getElementById("highscore-link");
 var interval;
 var time;
 var questionIndex;
@@ -76,7 +83,7 @@ function countdown() {
         }
     }
 
-var timeDisplay = document.getElementById("time");
+
 
 function displayTime() {
     timeDisplay.textContent = time;
@@ -97,6 +104,8 @@ function displayQuestion() {
 }
 
 document.getElementById("quiz-answers").addEventListener("click", checkcorrectAnswer);
+
+
 
 function answerIsCorrect(answerButton) {
     return answerButton.textContent === questions[questionIndex].correctanswer
@@ -123,16 +132,20 @@ function checkcorrectAnswer(eventObject) {
         }
     }
 
+    
+
     questionIndex++;
     if (questionIndex < questions.length) {
         displayQuestion();
     }
     else {
+        resultstext.textContent = "";
         endQuiz();
-    }
+    } 
+    
 }
 
-var score = document.getElementById("score");
+
 
 function endQuiz() {
     clearInterval(interval);
@@ -142,8 +155,7 @@ function endQuiz() {
     console.log(score)
 }
 
-var submit = document.getElementById("submit");
-var input = document.getElementById("initials");
+
 
 submit.addEventListener("click", storescore);
 
@@ -194,7 +206,7 @@ function renderHighscore() {
     }
 }
 
-var clearbutton = document.getElementById("clearbutton");
+
 clearbutton.addEventListener("click", clearHighscore);
 
 function clearHighscore () {
@@ -202,7 +214,7 @@ function clearHighscore () {
     renderHighscore();
 }
 
-var backbutton = document.getElementById("backbutton");
+
 backbutton.addEventListener("click", returnToStart);
 
 function returnToStart() {
@@ -210,7 +222,7 @@ function returnToStart() {
     maincard.removeAttribute("hidden");
 }
 
-var highscorelink = document.getElementById("highscore-link");
+
 highscorelink.addEventListener("click", showhighscore)
 
 function showhighscore() {

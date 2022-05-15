@@ -3,3 +3,41 @@
     padding: 0px;
     margin: 0px;
 }
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: aliceblue;
+    margin: 0px;
+}
+
+header {
+    display: flex;
+    color: blue;
+    background-color: darkgray;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    display: block;
+    color: aliceblue;
+    background-color: blueviolet;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.card {
+    max-width: 60%;
+    padding: 10px;
+}
+
+@media screen and (min-width: 900px) {
+    
+    
+}
